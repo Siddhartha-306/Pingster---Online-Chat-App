@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+/* Custom autofill styles */
+/* used to remove the autofill's predefined styling and providing the input fields for autofill the same bg as for normally given input fields  */
+input:-webkit-autofill {
+  @apply bg-slate-900 text-gray-300;
+  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset; /* Tailwind color bg-slate-900 */
+  box-shadow: 0 0 0px 1000px #0f172a inset; /* Tailwind color bg-gray-300 */
+  -webkit-text-fill-color: #d1d5db; /* Tailwind color text-gray-300 */
+  color: #d1d5db; /* Fallback for other browsers */
+}
