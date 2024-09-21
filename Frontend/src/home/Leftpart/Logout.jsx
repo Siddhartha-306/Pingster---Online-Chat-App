@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TbLogout } from "react-icons/tb";
 import axios from 'axios';
 import Cookies from "js-cookie";
+import { toast } from 'react-toastify';
 
 const Logout = () => {
   const [loading, setLoading] = useState(false);
@@ -10,11 +11,14 @@ const Logout = () => {
     // setLoading(true);
     try {
       const response = await axios.post("/api/user/logout");
-      localStorage.removeItem("GupShup");
+      localStorage.removeItem("PingSter");
       Cookies.remove("jwt");
       // setLoading(false);
-      alert("Logged Out successfully");
-      window.location.reload();    //to reload the page so that after logout the login page will show
+      // alert("Logged Out successfully");
+      toast.error("Logged Out successfully!");
+      setTimeout(()=>{
+        window.location.reload();    //to reload the page so that after logout the login page will show
+      }, 1000);
     } catch (error) {
       console.log("Error in logout", error);
     }

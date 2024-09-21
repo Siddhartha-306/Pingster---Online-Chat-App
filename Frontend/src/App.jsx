@@ -5,24 +5,30 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import { useAuth } from './context/Authprovider'
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [authUser, setAuthUser] = useAuth();
   console.log(authUser);
   return (
-    <Routes>
+    <>
+      <ToastContainer />
+
+      <Routes>
         
-        <Route path='/' element={ 
-          authUser? <div className='flex h-screen'>
-            <Left />
-            <Right />
-          </div> : (<Navigate to={"/login"} />)} />
+          <Route path='/' element={ 
+            authUser? <div className='flex h-screen'>
+              <Left />
+              <Right />
+            </div> : (<Navigate to={"/login"} />)} />
 
-        <Route path='/login' element={ authUser ? <Navigate to={"/"}/> : <Login />} />
+          <Route path='/login' element={ authUser ? <Navigate to={"/"}/> : <Login />} />
 
-        <Route path='/signup' element={ authUser ? <Navigate to={"/"}/> : <Signup />} />
+          <Route path='/signup' element={ authUser ? <Navigate to={"/"}/> : <Signup />} />
 
-    </Routes>
+      </Routes>
+    </>
   );
 }
 

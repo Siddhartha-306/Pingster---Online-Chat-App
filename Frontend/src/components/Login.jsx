@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { useAuth } from '../context/Authprovider';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 // import Link from "react-router-dom";
 
 const Login = () => {
@@ -25,16 +26,16 @@ const Login = () => {
             // console.log(response.data);
             if(response.data)
             {
-                alert("Logged In successfully");
+                toast.success("Logged In successfully");
             }
-            localStorage.setItem("GupShup", JSON.stringify(response.data));
+            localStorage.setItem("PingSter", JSON.stringify(response.data));
             setAuthUser(response.data);
         })
         .catch((error) => {
             console.log(error.response.data);
             if(error.response)
             {
-                alert("Error: " + error.response.data.message);
+                toast.error(error.response.data.message);
             }
         });
     };
