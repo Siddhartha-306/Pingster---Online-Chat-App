@@ -133,3 +133,17 @@ export const logout = async (req, res) => {
 
 
 
+
+//getting all the users from the db
+export const allUsers = async (req, res) => {
+    try{
+        const loggedInUser = req.user._id;    //to remove the user that is currently logged in, as it cannot be showed in the all user's list for that particular user as it is already on the host side
+        
+        const allUsers = await User.find({ _id : {$ne : loggedInUser}}).select("-password");
+        res.status(201).json(allUsers);
+    }
+    catch(error)
+    {
+        console.error("Error in fetching all users from the Database " + error);
+    }
+}
