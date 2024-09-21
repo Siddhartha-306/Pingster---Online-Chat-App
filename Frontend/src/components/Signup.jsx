@@ -33,7 +33,7 @@ const Signup = () => {
             confirmPassword: data.confirmPassword,
         }
 
-        await axios.post("http://localhost:3000/user/signup", userInfo).then((response) => {
+        await axios.post("/api/user/signup", userInfo).then((response) => {
             // console.log(response.data);
             if(response.data)
             {
@@ -56,7 +56,7 @@ const Signup = () => {
      <div className='flex flex-col justify-center items-center h-screen w-full bg-slate-900 text-white'>
         <div className='border-2 border-gray-300 p-8 rounded-md w-96'>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h1 className='text-3xl font-bold text-gray-200 text-center'>Gup<span className='text-green-400'>Shup</span></h1>
+                <h1 className='text-3xl font-bold text-gray-200 text-center'>Ping<span className='text-green-400'>Ster</span></h1>
                 <h2 className='font-bold text-lg my-4 text-gray-100'>Sign Up</h2>
 
                 {/* fullname */}

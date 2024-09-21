@@ -7,7 +7,9 @@ const Left = () => {
   return (
     <div className='w-[30%] bg-black text-gray-300'>
       <Search />
-      <Users />
+      <div className='scrollbar-hide overflow-y-auto' style={{ minHeight: "calc(84vh - 10vh)"}}>
+        <Users />
+      </div>
       <Logout />
     </div>
   )
