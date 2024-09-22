@@ -34,10 +34,7 @@ export const sendMessage = async (req, res) => {
 
         await Promise.all([conversation.save(), newMessage.save()]); //runs parallely
 
-        res.status(201).json({
-            message: "Message sent successfully",
-            newMessage
-        });
+        res.status(201).json(newMessage);
 
     } catch (error) {
         console.log("Error in sending message : ",error);
