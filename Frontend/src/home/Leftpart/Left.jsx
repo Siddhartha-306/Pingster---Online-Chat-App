@@ -5,7 +5,7 @@ import Logout from './Logout';
 
 const Left = () => {
   return (
-    <div className='w-[30%] bg-black text-gray-300'>
+    <div className='w-full bg-black text-gray-300'>
       <Search />
       <div className='scrollbar-hide overflow-y-auto' style={{ minHeight: "calc(84vh - 10vh)"}}>
         <Users />

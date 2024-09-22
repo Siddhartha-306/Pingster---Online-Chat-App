@@ -4,6 +4,7 @@ import Messages from './Messages'
 import Typesend from './Typesend'
 import useConversation from '../../components/zustand/useConversation';
 import {useAuth} from "../../context/Authprovider.jsx";
+import {CiMenuFries} from "react-icons/ci";
 
 const Right = () => {
   const {selectedConversation, setSelectedConversation} = useConversation();
@@ -13,7 +14,7 @@ const Right = () => {
   }, [setSelectedConversation]);
 
   return (
-  <div className='w-[70%] bg-slate-900 text-gray-300'>
+  <div className='w-full bg-slate-900 text-gray-300'>
     <div>
       {!selectedConversation ? (<NoChatSelected />) : (
           <>
@@ -39,12 +40,17 @@ const NoChatSelected = () => {
 
   return(
     <>
-      <div className='flex h-screen items-center justify-center'>
-          <h1 className='text-center'>Welcome <span className='font-semibold'>{authUser.user.fullname}</span>
-          <br />
-          <br />
-          No chat is selected, please start the conversation by selecting anyone from your contacts.
-          </h1>
+      <div className='relative'>
+        <label htmlFor='my-drawer-2' className='btn btn-ghost drawer-button lg:hidden absolute left-5'>
+          <CiMenuFries className="text-white text-2xl" />
+        </label>
+        <div className='flex h-screen items-center justify-center'>
+            <h1 className='text-center'>Welcome <span className='font-semibold'>{authUser.user.fullname}</span>
+            <br />
+            <br />
+            No chat is selected, please start the conversation by selecting anyone from your contacts.
+            </h1>
+        </div>
       </div>
     </>
   )
