@@ -5,8 +5,9 @@ import cors from "cors";
 import userRoute from "./routes/user.route.js";
 import cookieParser from "cookie-parser";
 import messageRoute from "./routes/message.route.js";
+import { app, server } from "./SocketIO/server.js";
 
-const app = express();
+// const app = express();
 
 
 dotenv.config();
@@ -31,6 +32,6 @@ mongoose.connect(uri, {
 app.use("/api/user", userRoute);
 app.use("/api/message", messageRoute);
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`App is running at port ${port}`);
 });
